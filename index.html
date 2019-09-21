@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>簡単にできるUnity × Websocket</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102679583-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102679583-2');
+    </script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>簡単にできる<br>Unity × Websocket</h1>
+				</section>
+				<section>
+					<h2>自己紹介</h2>
+					<table>
+  					<tr>
+							<td>
+								<img src="https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-1/p320x320/12065942_961723443900740_217399878221139281_n.jpg?_nc_cat=100&_nc_eui2=AeFRuu_yRcbMWyt3mVpNLYVUrUF8-5Vuyv45qkgToPMgy1ZfSDsoszN3XAWtCCgUk1hXomu2tb2WiF11M6LGjsK1UbN7LkI-aYmDkGiOVHzqgg&_nc_oc=AQmUr76JlI9z90Fledw7iIAHCvHDlgluin4fzDZ4MKD13u31oQmkRXleGNAlQOzXF0g&_nc_ht=scontent-nrt1-1.xx&oh=4b984e3315fa3ef56ebafe38f01d7904&oe=5DD8B469" width="256" height="256" alt="TakuKobayashi">
+							</td>
+							<td>
+								<ul>
+    		  			  <li>小林拓</li>
+		    	  			<li><a href="https://twitter.com/taptappun">@taptappun</a></li>
+						      <li>フルスタックエンジニア</li>
+      						<li>Unity歴は4年3ヶ月</li>
+									<li>現在の所属: <a href="https://www.wantedly.com/companies/bitbank">ビットバンク</a></li>
+								</ul>
+							</td>
+  				  </tr>
+					</table>
+  			</section>
+				<section>
+					<h2>Websocket</h2>
+					<p>Webにおいて双方向通信を行う為の仕組み。</p>
+					<p><img src="https://docs.microsoft.com/ja-jp/azure/application-gateway/media/application-gateway-websocket/websocket.png"></p>
+					<p>ゲームだと通称「マルチプレイ」といわれます。</p>
+				</section>
+				<section>
+					<h2>通信について詳しくはこちら</h2>
+					<p><a href="https://www.slideshare.net/takukobayashi560/ss-96591461"><img src="https://image.slidesharecdn.com/correspondence-180510052403/95/-1-638.jpg?cb=1525929967" alt="transport"></a></p>
+				</section>
+				<section>
+					<h2>ゲームの業界の豆知識</h2>
+					<p>今だと売れるスマホゲームを作るには<br>マルチプレイが実装の実装は必須</p>
+				</section>
+				<section>
+					<h2>マルチプレイでよく使われる<br>ライブラリ</h2>
+					<table>
+					  <tr>
+							<td><a href="https://www.photonengine.com/"><img src="https://support.photonengine.jp/hc/article_attachments/115019498487/photon_logo_rgb.png" width="300" height="82" alt="transport"></a></td>
+							<td><a href="https://monobit.co.jp/"><img src="https://monobit.co.jp/wp-content/themes/monobit-150413/shared/image/logo_monobit.png" alt="transport"></a></td>
+						</tr>
+					</table>
+					<p>ただしお高い...</p>
+				</section>
+				<section>
+					<p>たしかに双方向通信の実装は大変だし...</p>
+					<p>勉強するハードルも高い...</p>
+				</section>
+				<section>
+					<h2>お手軽に実装(試せる)サンプルを用意しました!!</h2>
+					<p><a href="https://github.com/TakuKobayashi/websocket_server_sample"><img src="./images/websocket_sample.png"></a></p>
+				</section>
+				<section>
+					<h2>デモ</h2>
+					<p><img src="http://www.gundam-c.com/other/wise-remark/gundam/image/char03.jpg" alt="misetemoraouka-sha"></p>
+					<p>見せてもらいおうか!!Websocketのデモの性能とやらを...</p>
+				</section>
+				<section>
+					<h2>サンプルの注意点</h2>
+					<p>Websocketサーバーに繋がっている人全員に送り返します</p>
+				</section>
+				<section>
+					<h2>マルチプレイの運用において<br>考えておくべきこと</h2>
+					<ol>
+						<li>スケールアウト</li>
+						<li>ネットワークの寸断・再接続</li>
+						<li>電池の消耗</li>
+						<li>サーバーのお値段</li>
+						<li>パケ詰まり</li>
+					</ol>
+				</section>
+				<section>
+					<h2>マルチプレイの実装・運用は<br>サーバーエンジニアには悩ましい</h2>
+					<p><img src="https://image.itmedia.co.jp/games/articles/0607/15/ki_pokemon20.jpg" alt="nayaminotane"></p>
+				</section>
+				<section>
+					<h2>マルチプレイの今後の展望</h2>
+					<ol>
+						<li>VR/ARでのマルチプレイ</li>
+						<li>e-sports/ゲーム実況動画でのリアルタイムコミュニケーション(チャット)</li>
+					</ol>
+					とかとか
+				</section>
+				<section>
+					<h2>ご静聴ありがとうございました</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
