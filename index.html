@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>簡単にできるUnity × Websocket</title>
+		<title>UnityでOAuth認証</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -35,7 +35,8 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>UnityでOAuth認証<br>~ブラウザからUnity製iOS/Androidアプリを起動してみた~</h1>
+					<h1>UnityでOAuth認証</h1>
+					<h4>ブラウザからiOS/Androidアプリを起動する</h4>
 				</section>
 				<section>
 					<h2>自己紹介</h2>
@@ -48,8 +49,8 @@
 								<ul>
     		  			  <li>小林拓</li>
 		    	  			<li><a href="https://twitter.com/taptappun">@taptappun</a></li>
-						      <li>フルスタックエンジニア</li>
-      						<li>Unity歴は4年3ヶ月</li>
+						      <li>フルスタックエンジニア/<br>ハッカソンジャンキー</li>
+									<li>Unity歴は4年3ヶ月</li>
 									<li>現在の所属: <a href="https://www.wantedly.com/companies/bitbank">ビットバンク</a></li>
 								</ul>
 							</td>
@@ -57,75 +58,61 @@
 					</table>
   			</section>
 				<section>
-					<h2>去年の実績</h2>
+					<h2>去年こんなの作ってました</h2>
+					<a href="https://hub.vroid.com/"><img src="./images/vroidhub.png" width="600" height="315" alt="VRoidHub"></a>
+					<p>Unity Pluginを作ってました</p>
+				</section>
+				<section>
+					<h2>要件の一部</h2>
+					<ul>
+						<li>OAuth認証の実装</li>
+						<li>ブラウザを起動し<br>OAuth認証が完了したらアプリに戻り<br>認証が完了した旨を通知する</li>
+					</ul>
 				</section>
 				<section>
 					<h2>OAuth認証</h2>
-					<p><a href="https://www.slideshare.net/takukobayashi560/ss-96591461"><img src="https://image.slidesharecdn.com/correspondence-180510052403/95/-1-638.jpg?cb=1525929967" alt="transport"></a></p>
-				</section>
-				<section>
-					<h2>URLスキーム / ディープリンク</h2>
-					<p>デモ</p>
-					<p>Webとアプリケーションとを繋ぐのに有用</p>
-				</section>
-				<section>
-					<h2>Referrer (Android専用)</h2>
-					<p>デモ</p>
-					<p>アプリがどこからインストールされたのか判別することができる</p>
-				</section>
-				<section>
-					<h2>Referrerもどき (iOSの場合)</h2>
-					<p>デモ</p>
-					<p>ただし、今もできるかわからない</p>
-				</section>
-				<section>
-					<h2>利用例</h2>
 					<table>
-					  <tr>
-							<td></td>
-							<td><a href="https://monobit.co.jp/"><img src="https://monobit.co.jp/wp-content/themes/monobit-150413/shared/image/logo_monobit.png" alt="transport"></a></td>
-						</tr>
+						<tr>
+							<td>
+					      <img src="https://tyfkda.github.io/assets/twitter-oauth.png" width="329" height="238" alt="Twitter OAuth">
+    					</td>
+					    <td>
+								<img src="https://docs.oracle.com/cd/E74890_01/books/RestAPI/images/OAuth2leg_V.gif" width="316" height="189" alt="OAuthSequence">
+								<p>処理シーケンス</p>
+     					</td>
+					  </tr>
 					</table>
-					<p>大事なプローモーションをするのにすごく有用な機能</p>
 				</section>
 				<section>
-					<h2>例えば招待での使い方</h2>
-					<p>勉強するハードルも高い...</p>
+					<h2>アプリに戻す技術</h2>
+					<h4>URLスキーム / ディープリンク</h4>
+					<p>Webとアプリケーションとを繋ぐのに有用</p>
+					<p>デモ</p>
 				</section>
 				<section>
-					<h2>お手軽に実装(試せる)サンプルを用意しました!!</h2>
-					<p><a href="https://github.com/TakuKobayashi/websocket_server_sample"><img src="./images/websocket_sample.png"></a></p>
+					<h2>Androidの実装方法</h2>
 				</section>
 				<section>
-					<h2>デモ</h2>
-					<p><img src="http://www.gundam-c.com/other/wise-remark/gundam/image/char03.jpg" alt="misetemoraouka-sha"></p>
-					<p>見せてもらいおうか!!Websocketのデモの性能とやらを...</p>
+					<h2>iOSの実装方法</h2>
 				</section>
 				<section>
-					<h2>サンプルの注意点</h2>
-					<p>Websocketサーバーに繋がっている人全員に送り返します</p>
+					<h2>活用例</h2>
+					<table>
+						<tr><td>招待リンク</td><td><img src="./images/invitecode_example.jpg" width="112" height="200"></td></tr>
+						<tr><td>SNSとゲームとの連携</td><td><img src="https://pbs.twimg.com/media/EEuz06yWkAA3JKQ?format=png" width="200" height="150"></td></tr>
+					</table>
+					<p>などなど</p>
 				</section>
 				<section>
-					<h2>マルチプレイの運用において<br>考えておくべきこと</h2>
-					<ol>
-						<li>スケールアウト</li>
-						<li>ネットワークの寸断・再接続</li>
-						<li>電池の消耗</li>
-						<li>サーバーのお値段</li>
-						<li>パケ詰まり</li>
-					</ol>
+					<h2>付随する類似機能</h2>
+					<h4>Referrer</h4>
+					<p>アプリがどこからインストールされたのか<br>判別することができる機能</p>
+					<p>デモ</p>
 				</section>
 				<section>
-					<h2>マルチプレイの実装・運用は<br>サーバーエンジニアには悩ましい</h2>
-					<p><img src="https://image.itmedia.co.jp/games/articles/0607/15/ki_pokemon20.jpg" alt="nayaminotane"></p>
-				</section>
-				<section>
-					<h2>マルチプレイの今後の展望</h2>
-					<ol>
-						<li>VR/ARでのマルチプレイ</li>
-						<li>e-sports/ゲーム実況動画でのリアルタイムコミュニケーション(チャット)</li>
-					</ol>
-					とかとか
+					<h2>まとめ</h2>
+					<p>URLスキーム / ディープリンク</p>
+					<p></p>
 				</section>
 				<section>
 					<h2>ご静聴ありがとうございました</h2>
