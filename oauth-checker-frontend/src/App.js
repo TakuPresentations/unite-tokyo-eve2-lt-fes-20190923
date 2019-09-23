@@ -7,6 +7,25 @@ const inputContainerStyles = {
 };
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      url: '',
+    };
+    this.onUrlInput = this.onUrlInput.bind(this);
+    this.onRedirect = this.onRedirect.bind(this);
+  }
+
+  onUrlInput(event) {
+    console.log(event);
+    this.setState({ url: event.target.value });
+  }
+
+  onRedirect(event) {
+    window.location.href = this.state.url;
+  }
+
   render() {
     return (
       <div className="App">
@@ -17,6 +36,7 @@ class App extends React.Component {
                 <Input
                   label="Input URLScheme"
                   placeholder="URL"
+                  onChange={this.onUrlInput}
                   type="text" />
               </div>
             </div>
@@ -25,7 +45,7 @@ class App extends React.Component {
             <div className="rainbow-m-horizontal_medium">
               <Button
                 label="Execute"
-                onClick={() => alert('clicked!')}
+                onClick={this.onRedirect}
                 variant="brand" />
             </div>
           </div>
