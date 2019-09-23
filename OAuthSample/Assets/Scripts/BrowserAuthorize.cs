@@ -28,11 +28,13 @@ public class BrowserAuthorize : MonoBehaviour{
             {
                 return;
             }
-            Set<string> paramNames = intentUri.Call<Set<string>>("getQueryParameterNames");
-        foreach(string name in paramNames){
-        string paramsValue = intentUri.Call<string>("getQueryParameter", name);
-        if(!string.IsNullOrEmpty(paramsValue) && OnReceieved != null) OnReceieved(name, paramsValue);
-        }
+            string[] paramNames = intentUri.Call<string[]>("getQueryParameterNames");
+            Debug.Log(paramNames);
+
+            foreach (string paramName in paramNames){
+                string paramsValue = intentUri.Call<string>("getQueryParameter", paramName);
+                if(!string.IsNullOrEmpty(paramsValue) && OnReceieved != null) OnReceieved(paramName, paramsValue);
+            }
 #endif
     }
 
