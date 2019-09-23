@@ -38,7 +38,21 @@ public class BrowserAuthorize : MonoBehaviour{
 #endif
     }
 
-    public void OpenBrowser(){
-            
+    public void OnOpenUrl(string url)
+    {
+        string authCode = "";
+        string[] pathQuery = url.Split('?');
+        if (pathQuery.Length > 1)
+        {
+            string[] urlQueryPairs = pathQuery[pathQuery.Length - 1].Split('&');
+            for (int i = 0; i < urlQueryPairs.Length; ++i)
+            {
+                string[] keyValue = urlQueryPairs[i].Split('=');
+                if (keyValue.Length > 1)
+                {
+                    if (!string.IsNullOrEmpty(keyValue[0]) && OnReceieved != null) OnReceieved(keyValue[0], keyValue[1]);
+                }
+            }
+        }
     }
 }
