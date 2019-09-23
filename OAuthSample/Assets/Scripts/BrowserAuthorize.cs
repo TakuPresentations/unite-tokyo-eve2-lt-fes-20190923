@@ -38,8 +38,7 @@ public class BrowserAuthorize : MonoBehaviour{
 #endif
     }
 
-    public void OpenBrowser()
-        {
+    public void OpenBrowser(){
             
-        }
     }
+}
